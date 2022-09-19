@@ -1,5 +1,7 @@
 build/
 node_modules/
 .vscode/
+
 .env
+package-lock.json
 local-postgres.session.sql

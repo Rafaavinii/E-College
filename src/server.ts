@@ -19,4 +19,4 @@ route.get('/', (_req, res) => {
 app.use(route)
 mountRoutes(app)
 
-app.listen(PORT, () => console.log('Servidor rodando na porta ', PORT))
+app.listen(PORT, () => console.log(`[START] Servidor rodando na porta ${PORT}`))

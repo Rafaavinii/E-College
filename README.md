@@ -1,1 +1,1 @@
-# E-College
+# EClasse

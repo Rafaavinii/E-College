@@ -23,8 +23,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     console.log('[POST] Criando aluno')
 
-    const { nome, telefone, email, matricula, id_endereco, id_turma } = req.body
-    const aluno = new Aluno(nome, telefone, email, matricula, id_endereco, id_turma)
+    const aluno = req.body as Aluno
     const result = await alunoRepo.post(aluno)
 
     res.status(result ? 201 : 409)

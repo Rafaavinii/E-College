@@ -22,9 +22,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     console.log('[POST] Criando turma')
 
-    const { identificador } = req.body
-
-    const turma = new Turma(identificador)
+    const turma = req.body as Turma
     const result = await repositorio.post(turma)
 
     res.status(result ? 201 : 409)

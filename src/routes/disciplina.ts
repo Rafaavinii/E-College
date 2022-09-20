@@ -22,9 +22,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     console.log('[POST] Criando disciplina')
 
-    const { codigo, descricao, ementa, carga_horaria } = req.body
-
-    const entidade = new Disciplina(codigo, descricao, carga_horaria, ementa)
+    const entidade = req.body as Disciplina
     const result = await disciplinaRepo.post(entidade)
 
     res.status(result ? 201 : 409)

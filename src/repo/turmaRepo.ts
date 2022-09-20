@@ -12,10 +12,7 @@ export = new class implements Repositorio<Turma> {
 
         const { rows } = await db.query(query, params)
 
-        return rows.map(linha => {
-            const { identificador } = linha
-            return new Turma(identificador)
-        })
+        return rows.map(row => row as Turma)
     }
 
     async post(entidade: Turma): Promise<boolean> {

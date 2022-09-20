@@ -12,10 +12,7 @@ export = new class implements Repositorio<Aluno> {
 
         const { rows } = await db.query(query, params)
 
-        return rows.map(linha => {
-            const { nome, telefone, email, id_endereco, id_turma, matricula } = linha
-            return new Aluno(nome, telefone, email, matricula, id_endereco, id_turma)
-        })
+        return rows.map(row => row as Aluno)
     }
 
     async post(entidade: Aluno): Promise<boolean> {

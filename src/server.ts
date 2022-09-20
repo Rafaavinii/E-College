@@ -1,7 +1,7 @@
 import express from 'express'
 import { Router } from 'express'
 import dotenv from 'dotenv'
-import mountRoutes from "./routes"
+import mountRoutes from './routes'
 
 dotenv.config()
 
@@ -13,6 +13,9 @@ const route = Router()
 app.use(express.json())
 
 route.get('/', (_req, res) => {
+  console.log('[GET] Obtendo raiz')
+
+  res.status(200)
   res.sendFile('./view/index.html', { root: __dirname })
 })
 

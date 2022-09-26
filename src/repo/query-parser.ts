@@ -25,7 +25,7 @@ function conditions(options: object, model: object, table: string): QueryConfig 
 
 function insertion(entity: object, table: string): QueryConfig {
     const entries = Object.entries(entity)
-    const colunas = entries.map(entry => entry[0].substring(1)).join(', ')
+    const colunas = entries.map(entry => entry[0]).join(', ')
     const placeholders = entries.map((_, i) => `$${i + 1}`).join(', ')
     const params = entries.map(entry => entry[1])
 

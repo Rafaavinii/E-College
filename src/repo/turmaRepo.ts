@@ -1,7 +1,7 @@
 import { Turma } from '../model/Turma'
 import { Repositorio } from './repositorio'
 import db from '../db'
-import { conditions } from './query-parser'
+import { conditions, insertion } from './query-parser'
 
 export = new class implements Repositorio<Turma> {
     private _tabela = 'escola.turma'
@@ -17,8 +17,8 @@ export = new class implements Repositorio<Turma> {
 
     async post(entidade: Turma): Promise<boolean> {
         try {
-            const { identificador } = entidade
-            await db.query(`INSERT INTO ${this._tabela} VALUES ($1)`, [identificador])
+            const { query, params } = insertion(entidade, this._tabela)
+            await db.query(query, params)
             return true
         } catch {
             return false

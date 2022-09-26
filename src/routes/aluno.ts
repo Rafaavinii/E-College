@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
         res.status(200)
         res.send(result)
     }
-
     res.end()
 })
 
